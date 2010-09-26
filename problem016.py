@@ -3,7 +3,6 @@ power = 1000
 
 # solution 1
 num = 2**power
-print num
 s = 0
 while num > 0:
 	s += num % 10
