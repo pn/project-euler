@@ -13,25 +13,24 @@ def is_prime(n):
 	return True
 
 def get_primes(n):
-	t, p = [], 2
+	t, p = [2], 3
 	for i in range(n):
 		while not is_prime(p):
-			p += 1
+			p += 2
 		t.append(p)
-		p += 1
+		p += 2
 	return t
 
 primes = get_primes(num_divisors*10)
 
 def prime_factors(n):
 	pf = {}
-	while n > 1:
-		for p in primes:
-			if n % p == 0:
-				pf[p] = pf.get(p, 0) + 1
-				n = n / p
-			if n == 1:
-				break;
+	for p in primes:
+		while n % p == 0:
+			pf[p] = pf.get(p, 0) + 1
+			n = n / p
+		if n == 1:
+			break;
 	return pf
 
 def num_divs(n):
